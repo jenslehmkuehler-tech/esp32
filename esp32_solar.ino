@@ -3,6 +3,7 @@
 #include <WebServer.h>
 #include <ArduinoOTA.h>
 #include <ArduinoJson.h>
+#include <stdarg.h>
 
 /* ================== WLAN ================== */
 const char* WIFI_SSID  = "Hello WWW";
@@ -195,7 +196,7 @@ const uint32_t MQTT_RETRY_INTERVAL = 5000; // ms
 
 String makeClientId(){
   String mac = WiFi.macAddress();
-  mac.replace(':','');
+  mac.replace(":", "");
   return String("ESP32_SOLAR_") + mac;
 }
 
